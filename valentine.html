@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Be My Valentine 💖</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', cursive;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .container {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        max-width: 400px;
+        position: relative;
+    }
+
+    h1 {
+        color: #d63384;
+        margin-bottom: 30px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        margin: 10px;
+        transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+        background-color: #ff4d6d;
+        color: white;
+    }
+
+    #yesBtn:hover {
+        background-color: #e0315a;
+        transform: scale(1.1);
+    }
+
+    #noBtn {
+        background-color: #6c757d;
+        color: white;
+        position: absolute;
+    }
+
+    #message {
+        display: none;
+        margin-top: 20px;
+        font-size: 18px;
+        color: #c9184a;
+        max-height: 200px;
+        overflow-y: auto;
+        padding: 10px;
+    }
+
+
+
+    .hearts {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+    }
+
+    .heart {
+        position: absolute;
+        color: #ff4d6d;
+        font-size: 20px;
+        animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(100vh); opacity: 0; }
+        50% { opacity: 1; }
+        100% { transform: translateY(-10vh); opacity: 0; }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="hearts"></div>
+
+<div class="container">
+    <h1>Will you be my Valentine, Sneha? 💖</h1>
+    <button id="yesBtn">Yes 🥰</button>
+    <button id="noBtn">No 😢</button>
+
+    <div id="message">
+        Hey , sneha ..... its me tera neechalda idiot Ansh, i know it's something which is very sudden i wish i could make it even better ,
+        and YES i do like you , idk yaar what should i say now i love sharing thing with you no matter what it is , if it's you i can share my world with you..... 
+        tbh idk tu mere bare me kya sochti hain but i really like you , i have something for you joh main kisi or ke liye feel nahi karta , 
+        i love it when you called me idiot and mujhe jab aapni itni sundar ankhon se darati hain i love it all, 
+        see ik i'm not your ideal BOOKISH GUY but i'll try my level best to love you the most, i really resprct you and your opinions over things ,
+        just wanted to let you know that i do feel the connection with you , i am not sure about you and sach bolu toh since 3rd sems i wanted to tell you this but i was scared kii shayad tu aise nahi feel karti hogi ..... but from my side i really want us to be together FOREVERRRR, i want you to fix me and my english till my 80's 
+        You just made me the happiest person alive ❤️  
+        I promise cute dates, endless laughs, and lots of memories together..... ill always love you more than you'll ever imagine.....  🌹✨
+    </div>
+</div>
+
+<script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const message = document.getElementById("message");
+
+    // Move "No" button when hovered
+    noBtn.addEventListener("mouseover", () => {
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 50);
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    });
+
+    // Show message when "Yes" clicked
+    yesBtn.addEventListener("click", () => {
+        message.style.display = "block";
+        yesBtn.style.display = "none";
+        noBtn.style.display = "none";
+    });
+
+    // Floating hearts animation
+    const heartsContainer = document.querySelector(".hearts");
+
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 10 + "px";
+        heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+        heartsContainer.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+
+    setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>

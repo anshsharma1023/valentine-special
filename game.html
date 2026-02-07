@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Level 1 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: sans-serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+h1 { color: #c9184a; }
+
+#heart {
+    font-size: 40px;
+    position: absolute;
+    cursor: pointer;
+}
+
+#score {
+    font-size: 20px;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Catch the Hearts to Unlock a Surprise 💕</h1>
+<div id="heart">💖</div>
+<div id="score">Hearts Caught: 0 / 5</div>
+
+<script>
+let count = 0;
+const heart = document.getElementById("heart");
+const score = document.getElementById("score");
+
+function moveHeart() {
+    heart.style.left = Math.random() * (window.innerWidth - 50) + "px";
+    heart.style.top = Math.random() * (window.innerHeight - 50) + "px";
+}
+
+heart.addEventListener("click", () => {
+    count++;
+    score.innerText = `Hearts Caught: ${count} / 5`;
+    moveHeart();
+
+    if (count >= 5) {
+        window.location.href = "memories.html";
+    }
+});
+
+moveHeart();
+</script>
+
+</body>
+</html>
